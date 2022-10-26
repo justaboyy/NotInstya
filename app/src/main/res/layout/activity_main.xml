@@ -9,14 +9,12 @@
     <!-- Header aligned to top -->
     <LinearLayout
         android:id="@+id/header"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="414dp"
+        android:layout_height="70dp"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="1dp"
         android:background="#f00"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -65,40 +63,17 @@
 
     </LinearLayout>
 
-
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="408dp"
-        android:layout_height="635dp"
+        android:layout_width="409dp"
+        android:layout_height="659dp"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="71dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
         android:orientation="horizontal"
-        app:layout_constrainedHeight="true"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header">
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="421dp"
-        android:layout_height="142dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="-10dp"
-        tools:layout_editor_absoluteY="589dp">
-
-        <ImageButton
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:contentDescription="@string/app_name" />
-    </LinearLayout>
 
     <!-- Footer aligned to bottom
 
