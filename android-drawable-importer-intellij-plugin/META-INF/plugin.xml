@@ -1,0 +1,61 @@
+<idea-plugin version="2">
+  <version>0.5-81</version>
+  <id>de.mprengemann.intellij.plugin.androidicons</id>
+  <idea-version since-build="139.1603.1"/>
+  <name>Android Drawable Importer</name>
+  <vendor email="marcprengemann@gmail.com" url="https://plus.google.com/+MarcPrengemann">Marc Prengemann</vendor>
+  <description>
+        This plugin consists of three main features. You can access them by a right-click anywhere, but &lt;b&gt;not on a file&lt;/b&gt;, inside an Android module under New.&lt;br&gt;&lt;br&gt;
+        &lt;b&gt;1. AndroidIcons and Material Icons Drawable Import&lt;/b&gt;&lt;br&gt;
+        You are able to select the asset, specify your color, change the target resource name and select all the resolutions you want to import.&lt;br&gt;
+        All the missing folders will be created automatically. If there are already drawables with the same name, you will be warned. You can even search for your desired asset by just start typing when the first spinner has focus.&lt;br&gt;
+        Since Material Icons provide also Vector Drawables, those can be imported now as well!&lt;br&gt;
+        &lt;br&gt;
+        &lt;b&gt;2. Batch Drawable Import&lt;/b&gt;&lt;br&gt;
+        Select assets (or a whole folder) and specify the source resolutions. You can change the source size of every image as well. Specify all resolutions, to which it should be resized to.&lt;br&gt;
+        This works also with 9-Patch-Images. But take care: sometimes it's necessary to remove / add the one or other "pixel" in the 9-Patch-Editor. But just give it a try :)&lt;br&gt;
+        &lt;br&gt;
+        &lt;b&gt;3. Multisource-Drawable&lt;/b&gt;&lt;br&gt;
+        Ever got a zip with drawables for your Android project by your designer with the following structure?&lt;br&gt;&lt;br&gt;
+        root/&lt;br&gt;
+        ./drawable_ldpi.png&lt;br&gt;
+        ./drawable_mdpi.png&lt;br&gt;
+        ./drawable_hdpi.png&lt;br&gt;
+        ./drawable_xhdpi.png&lt;br&gt;&lt;br&gt;
+        No problem! Now you can just select for every resolution a different asset, specify one name for them, and the rest is done by the plugin.&lt;br&gt;
+        Or even easier, you can select the whole zip, and this plugin will auto extract the asset to the best matching folder.&lt;br&gt;&lt;br&gt;
+        &lt;em&gt;Hint: When you select an asset, you can also just drag a file from your explorer to the text field and drop it there.&lt;/em&gt;
+        
+    </description>
+  <change-notes>
+      - Various Bug Fixes
+    
+    </change-notes>
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.modules.java</depends>
+  <depends>org.jetbrains.android</depends>
+  <application-components>
+    <component>
+      <implementation-class>de.mprengemann.intellij.plugin.androidicons.IconApplication</implementation-class>
+    </component>
+  </application-components>
+  <project-components>
+    <component>
+      <interface-class>de.mprengemann.intellij.plugin.androidicons.IProjectSettingsComponent</interface-class>
+      <implementation-class>de.mprengemann.intellij.plugin.androidicons.ProjectSettingsComponent</implementation-class>
+      <option name="workspace" value="true"/>
+      <loadForDefaultProject/>
+    </component>
+  </project-components>
+  <actions>
+    <group id="de.mprengemann.intellij.plugin.androidicons.group" text="Drawable" popup="false" class="de.mprengemann.intellij.plugin.androidicons.actions.AndroidAssetUtilsGroup" icon="/src/main/resources/icons/android.png">
+      <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewAndroidAssetImage"/>
+      <separator/>
+      <action id="de.mprengemann.intellij.plugin.androidicons.actions.IconsAction" class="de.mprengemann.intellij.plugin.androidicons.actions.IconsAction"/>
+      <action id="de.mprengemann.intellij.plugin.androidicons.actions.VectorsAction" class="de.mprengemann.intellij.plugin.androidicons.actions.VectorsAction"/>
+      <action id="de.mprengemann.intellij.plugin.androidicons.actions.AndroidBatchImportAction" class="de.mprengemann.intellij.plugin.androidicons.actions.AndroidBatchImportAction"/>
+      <action id="de.mprengemann.intellij.plugin.androidicons.AndroidMultiDrawableImporter" class="de.mprengemann.intellij.plugin.androidicons.actions.AndroidMultiDrawableAction"/>
+      <separator/>
+    </group>
+  </actions>
+</idea-plugin>
